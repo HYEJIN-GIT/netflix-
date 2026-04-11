@@ -6,10 +6,10 @@ const Banner = () => {
     const {data,isLoading,isError,error} = usePopularMoviesQuery()
     console.log(data)
     if(isLoading){
-      <h1>Loading....</h1>
+    return  <h1>Loading....</h1>
     }
     if(isError){
-      <Alert variant='danger'>{error.message}</Alert>
+      return   <Alert variant='danger'>{error.message}</Alert>
     }
   return (
     <div style={{
