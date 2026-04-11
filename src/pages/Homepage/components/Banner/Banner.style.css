@@ -1,0 +1,81 @@
+.banner{
+    margin-top: 5px;
+    height: 56vh;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.banner:before{
+content:  '';
+background: linear-gradient(to top,rgb(4, 4, 4), transparent );
+position: absolute;
+left: 0px;
+height: 62vh;
+width: 100%;
+
+}
+
+.banner-text-area{
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 2rem;
+}
+
+
+.banner-text-area p{
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+.banner-text-area > * {
+    z-index: 2 ;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .banner {
+      height: 40vh;
+      background-position: center;
+    }
+  
+    .banner-text-area {
+        width: 75%;
+    
+      padding: 1rem;
+    }
+  
+
+
+    .banner-text-area h1 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+  
+     
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .banner-text-area p {
+      font-size: 0.8rem;
+      line-height: 1.2;
+  
+     
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }

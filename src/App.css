@@ -12,7 +12,7 @@
   
   /* 메뉴 글자 */
   .navbar-dark{
-    border-bottom: 1px solid rgb(111, 110, 110);
+    border-bottom: 1px solid rgb(55, 55, 55);
   }
   .navbar-dark .navbar-nav .nav-link {
     color: white;
