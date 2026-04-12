@@ -1,6 +1,9 @@
 
 
-  
+  .body{
+    color: white important;
+   
+  }
   .nav-css {
     background-color: black;
     min-height: 100vh;
