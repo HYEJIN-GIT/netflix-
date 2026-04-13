@@ -3,5 +3,14 @@
     height: 440px;
 }
 .upcoming-area{
-   margin: 0px 70px;
+    margin: 0px 20px;
 }
+
+
+@media (max-width: 768px) {
+
+    .upcoming-area{
+        margin: 0px;
+    }
+    
+  }

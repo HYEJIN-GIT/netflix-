@@ -3,5 +3,13 @@
     height: 440px;
 }
 .top-area{
-    margin: 40px 70px;
+    margin: 50px 20px;
 }
+
+@media (max-width: 768px) {
+
+    .top-area{
+        margin: 0px;
+    }
+    
+  }

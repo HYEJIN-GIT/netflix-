@@ -13,13 +13,14 @@ const Banner = () => {
     }
   return (
     <div style={{
-      backgroundImage:"url("+`https://image.tmdb.org/t/p/w1066_and_h600_bestv2/${data?.results[0].poster_path
+      backgroundImage:"url("+`https://image.tmdb.org/t/p/w1066_and_h600_bestv2/${data?.results[3].backdrop_path
 
       }`+")"
     }} className='banner'>
       <div className='banner-text-area'>
-        <h1>{data?.results[0].title}</h1>
-        <p>{data?.results[0].overview}</p>
+       
+        <h1>{data?.results[3].title}</h1>
+        <p>{data?.results[3].overview}</p>
       </div>
     </div>
   )

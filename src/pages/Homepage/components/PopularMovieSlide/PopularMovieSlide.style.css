@@ -3,5 +3,12 @@
     height: 440px;
 }
 .popular-area{
-    margin: 50px 70px;
+    margin: 50px 20px;
 }
+
+
+@media (max-width: 768px) {
+
+
+    
+  }
