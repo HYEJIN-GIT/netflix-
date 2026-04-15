@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
+  const [keyword,setKeyword] = useState("")
+  const navigate = useNavigate()
+  const searchByKeyword = (e)=>{
+    e.preventDefault()
+    navigate(`/movies?q=${keyword}`)
+    setKeyword('')
+  }
   return (
     <div className='nav-css'>
       <Navbar expand="lg" className="bg-black navbar-dark">
@@ -31,14 +38,16 @@ const AppLayout = () => {
             as={Link} to="/movies"
             >Movies</Nav.Link>
             </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={searchByKeyword}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={keyword}
+              onChange={(e)=>setKeyword(e.target.value)}
             />
-            <Button variant="danger">Search</Button>
+            <Button variant="danger" type='submit'>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
