@@ -1,0 +1,122 @@
+
+.movie-wrapper {
+    position: relative;
+    height: 70vh; 
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+ 
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.95) 10%,
+      rgba(0,0,0,0.7) 40%,
+      rgba(0,0,0,0.3) 100%
+    );
+    z-index: 1;
+  }
+  
+ 
+  .content {
+    position: absolute;
+    bottom: -120px; 
+    left: 80px;
+    display: flex;
+    gap: 40px;
+    z-index: 2;
+    align-items: flex-end;
+  }
+  
+ 
+  .poster {
+    width: 260px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  }
+  
+ 
+  .details {
+    max-width: 600px;
+  }
+  
+  .details h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+  
+
+  .badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .badges span {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 20px;
+    color: #bbb;
+    margin-bottom: 15px;
+  }
+  
+
+  .overview {
+    line-height: 1.6;
+    color: #ddd;
+    font-size: 15px;
+  }
+  
+  .review-section {
+    margin-top: 160px; 
+    padding: 60px 80px;
+    background: #0b0b0b;
+    color: white;
+  }
+  
+  .review-section h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+  
+
+  .review-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    background: #222;
+  }
+  
+  .review-card h4 {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .review-card p {
+    color: #ccc;
+    line-height: 1.6;
+  
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .video-area{
+    margin-top: 300px;
+  }

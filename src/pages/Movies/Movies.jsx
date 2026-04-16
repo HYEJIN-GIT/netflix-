@@ -36,7 +36,12 @@ console.log("Col:", Col)
   return (
     <Container>
       <Row>
-        <Col lg={4} xs={12}></Col>
+        <Col lg={4} xs={12}>
+        
+        영화 인기순
+
+        영화 장르별
+        </Col>
 
         <Col lg={8} xs={12}>
           <Row>
