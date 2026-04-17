@@ -13,7 +13,7 @@ const UpcomingMovieSlide = () => {
     
       const { data, isLoading, isError, error } =  useUpcomingMoviesQuery()
     
-      if (isLoading) return <h1>Loading....</h1>
+      if (isLoading) return 
       if (isError) return <Alert variant='danger'>{error.message}</Alert>
     
       return (

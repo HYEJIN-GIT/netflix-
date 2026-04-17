@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useMovieDetailQuery } from '../../hooks/useMovieDetail'
 import './MovieDetail.style.css'
 import { useMovieReviewsQuery } from '../../hooks/useMovieReviewsQuery'
 import { useMovieVideoQuery } from '../../hooks/useMovieVideoQuery'
-
+import { BeatLoader } from 'react-spinners'
+import { Alert } from 'bootstrap'
 const MovieDetail = () => {
   const { id } = useParams()
-  const { data } = useMovieDetailQuery(id)
+  const { data,isLoading,isError,error } = useMovieDetailQuery(id)
   const {data:review} = useMovieReviewsQuery(id)
   const {data : video} = useMovieVideoQuery(id)
- 
+  const [openId, setOpenId]= useState(null)
 const trailer = video?.find((item)=> item.type === "Trailer")
-console.log(trailer )
+
+
+if(isLoading){
+  return  <BeatLoader size={15} color="white"></BeatLoader>
+  }
+  if(isError){
+    return   <Alert variant='danger'>{error.message}</Alert>
+  }
+
+  console.log(review)
   
+  const toggle=(id)=>{
+    setOpenId(prev => (prev === id ? null : id))
+
+  }
 
   return (
     <>
@@ -43,11 +57,16 @@ console.log(trailer )
   
           <div className="meta">
             <span>{data?.release_date}</span>
-            <span>{data?.popularity}</span>
-            <span>{Math.round(data?.vote_average * 10) / 10}</span>
+           
           </div>
   
           <p className="overview">{data?.overview}</p>
+          <div>
+            <span>{data?.budget}</span>
+            <span>{data?.popularity}</span>
+            <span>{Math.round(data?.vote_average * 10) / 10}</span>
+          </div>
+         
         </div>
       </div>
     </div>
@@ -78,9 +97,18 @@ console.log(trailer )
       
       ) : (
         review?.map((item) => (
+          
           <div className="review-card" key={item.id}>
             <h4>{item.author}</h4>
-            <p>{item.content}</p>
+            <p> {openId === item.id
+    ? item.content
+    : item.content.slice(0, 100)}</p>
+           <button  onClick={()=>toggle(item.id)}>{
+            openId === item.id?
+            "접기" : "더보기"
+            
+            }</button>
+            
           </div>
         ))
       )}

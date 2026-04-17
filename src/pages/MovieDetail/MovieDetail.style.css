@@ -110,13 +110,18 @@
   
   .review-card p {
     color: #ccc;
-    line-height: 1.6;
-  
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+   
   }
   .video-area{
     margin-top: 300px;
+  }
+
+  .review-card button{
+ 
+    background: none;
+    border: none;
+    font-size: 14px;
+    border-bottom: 1px solid beige;
+    color: rgb(200, 189, 189);
+
   }

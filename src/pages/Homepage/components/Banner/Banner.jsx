@@ -2,11 +2,12 @@ import React from 'react'
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies'
 import { Alert } from 'react-bootstrap'
 import "./Banner.style.css"
+import { BeatLoader } from "react-spinners"
 const Banner = () => {
     const {data,isLoading,isError,error} = usePopularMoviesQuery()
     console.log(data)
     if(isLoading){
-    return  <h1>Loading....</h1>
+    return  <BeatLoader size={15} color="white"></BeatLoader>
     }
     if(isError){
       return   <Alert variant='danger'>{error.message}</Alert>

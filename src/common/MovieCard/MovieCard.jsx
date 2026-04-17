@@ -5,7 +5,7 @@ import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const MovieCard = ({movie}) => {
-  console.log(movie.id)
+ 
  
  const {data:genreData} = useMovieGenreQuery()
  const showGenre = (genreIdList) => {
