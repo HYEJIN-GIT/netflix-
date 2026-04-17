@@ -33,7 +33,20 @@ const Movies = () => {
   const handlePageClick = (event) => {
     setPage(event.selected + 1)
   }
-
+  const genres = [
+    { id: 28, name: "액션" },
+    { id: 12, name: "모험" },
+    { id: 16, name: "애니메이션" },
+    { id: 35, name: "코미디" },
+    { id: 80, name: "범죄" },
+    { id: 99, name: "다큐멘터리" },
+    { id: 18, name: "드라마" },
+    { id: 14, name: "판타지" },
+    { id: 27, name: "공포" },
+    { id: 10749, name: "로맨스" },
+    { id: 878, name: "SF" },
+    { id: 53, name: "스릴러" }
+  ]
   
   const processedList = useMemo(() => {
     let list = [...(data?.results || [])]
@@ -50,9 +63,7 @@ const Movies = () => {
       list.sort((a, b) => b.popularity - a.popularity)
     }
 
-    if (sortBy === 'asc') {
-      list.sort((a, b) => a.popularity - b.popularity)
-    }
+    
 
     if (sortBy === 'rating') {
       list.sort((a, b) => b.vote_average - a.vote_average)
@@ -67,6 +78,7 @@ const Movies = () => {
 
     return list
   }, [data, genre, sortBy])
+
 
   if (isLoading) return <BeatLoader />
   if (isError) return <h1>Error</h1>
@@ -83,12 +95,10 @@ const Movies = () => {
             <Col>
               <DropdownButton title="정렬">
                 <Dropdown.Item onClick={() => setSortBy('desc')}>
-                  인기순 (내림차순)
+                  인기순 
                 </Dropdown.Item>
 
-                <Dropdown.Item onClick={() => setSortBy('asc')}>
-                  인기순 (오름차순)
-                </Dropdown.Item>
+    
 
                 <Dropdown.Item onClick={() => setSortBy('rating')}>
                   평점 높은 순
@@ -100,25 +110,24 @@ const Movies = () => {
               </DropdownButton>
             </Col>
 
-            {/* 장르 */}
+         
             <Col>
-              <DropdownButton title="장르">
-                <Dropdown.Item onClick={() => setGenre(null)}>
-                  전체
-                </Dropdown.Item>
+            <DropdownButton title="장르" className="w-100">
 
-                <Dropdown.Item onClick={() => setGenre(28)}>
-                  액션
-                </Dropdown.Item>
+<Dropdown.Item onClick={() => setGenre(null)}>
+  전체
+</Dropdown.Item>
 
-                <Dropdown.Item onClick={() => setGenre(35)}>
-                  코미디
-                </Dropdown.Item>
+{genres.map((g) => (
+  <Dropdown.Item
+    key={g.id}
+    onClick={() => setGenre(g.id)}
+  >
+    {g.name}
+  </Dropdown.Item>
+))}
 
-                <Dropdown.Item onClick={() => setGenre(18)}>
-                  드라마
-                </Dropdown.Item>
-              </DropdownButton>
+</DropdownButton>
             </Col>
 
           </Row>
