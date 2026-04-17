@@ -56,15 +56,15 @@ if(isLoading){
           </div>
   
           <div className="meta">
-            <span>{data?.release_date}</span>
+            <span> Release Date {data?.release_date}</span>
            
           </div>
   
           <p className="overview">{data?.overview}</p>
-          <div>
-            <span>{data?.budget}</span>
-            <span>{data?.popularity}</span>
-            <span>{Math.round(data?.vote_average * 10) / 10}</span>
+          <div className='movie-info'>
+            <div>Budget {data?.budget}</div>
+            <div>popularity {data?.popularity}</div>
+            <div>vote_average {Math.round(data?.vote_average * 10) / 10}</div>
           </div>
          
         </div>
