@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
@@ -20,12 +21,11 @@ const Movies = () => {
   const keyword = query.get('q')
 
   const [page, setPage] = useState(1)
-  const [sortBy, setSortBy] = useState('popular') 
+  const [sortBy, setSortBy] = useState('popular')
   const [genre, setGenre] = useState(null)
 
   const { data, isLoading, isError } = useSearchMovieQuery(keyword, page)
 
-  
   useEffect(() => {
     setPage(1)
   }, [keyword, sortBy, genre])
@@ -33,6 +33,7 @@ const Movies = () => {
   const handlePageClick = (event) => {
     setPage(event.selected + 1)
   }
+
   const genres = [
     { id: 28, name: "액션" },
     { id: 12, name: "모험" },
@@ -47,7 +48,7 @@ const Movies = () => {
     { id: 878, name: "SF" },
     { id: 53, name: "스릴러" }
   ]
-  
+
   const processedList = useMemo(() => {
     let list = [...(data?.results || [])]
 
@@ -58,12 +59,10 @@ const Movies = () => {
       )
     }
 
-    
+   
     if (sortBy === 'desc') {
       list.sort((a, b) => b.popularity - a.popularity)
     }
-
-    
 
     if (sortBy === 'rating') {
       list.sort((a, b) => b.vote_average - a.vote_average)
@@ -79,79 +78,68 @@ const Movies = () => {
     return list
   }, [data, genre, sortBy])
 
-
-  if (isLoading) return <BeatLoader />
-  if (isError) return <h1>Error</h1>
+  if (isLoading) return <div className="text-center mt-5"><BeatLoader /></div>
+  if (isError) return <h1 className="text-center mt-5">Error</h1>
 
   return (
     <Container className="movie-page">
       <Row>
 
        
-        <Col lg={4} xs={12}  className="movie-card-col">
+        <Col xs={12} className="mb-3">
           <Row className="filter-row">
-
-           
-            <Col>
-              <DropdownButton title="정렬">
+            <Col xs={6}>
+              <DropdownButton title="정렬" className="w-100">
                 <Dropdown.Item onClick={() => setSortBy('desc')}>
-                  인기순 
+                  인기순
                 </Dropdown.Item>
-
-    
-
                 <Dropdown.Item onClick={() => setSortBy('rating')}>
                   평점 높은 순
                 </Dropdown.Item>
-
                 <Dropdown.Item onClick={() => setSortBy('latest')}>
                   최신순
                 </Dropdown.Item>
               </DropdownButton>
             </Col>
 
-         
-            <Col>
-            <DropdownButton title="장르" className="w-100">
-
-<Dropdown.Item onClick={() => setGenre(null)}>
-  전체
-</Dropdown.Item>
-
-{genres.map((g) => (
-  <Dropdown.Item
-    key={g.id}
-    onClick={() => setGenre(g.id)}
-  >
-    {g.name}
-  </Dropdown.Item>
-))}
-
-</DropdownButton>
+            <Col xs={6}>
+              <DropdownButton title="장르" className="w-100">
+                <Dropdown.Item onClick={() => setGenre(null)}>
+                  전체
+                </Dropdown.Item>
+                {genres.map((g) => (
+                  <Dropdown.Item
+                    key={g.id}
+                    onClick={() => setGenre(g.id)}
+                  >
+                    {g.name}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
             </Col>
-
           </Row>
         </Col>
 
-       
-        <Col lg={8} xs={12} >
+      
+        <Col xs={12}>
           <Row>
             {processedList.map(movie => (
-              <Col key={movie.id} lg={4}>
+              <Col key={movie.id} xs={6} sm={4} md={3} lg={4} className="mb-3">
                 <MovieCard movie={movie} />
               </Col>
             ))}
           </Row>
 
+         
           <Paginate
             breakLabel="..."
             nextLabel=">"
             previousLabel="<"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={3}
             pageCount={data?.total_pages || 1}
             forcePage={page - 1}
-            containerClassName="pagination"
+            containerClassName="pagination justify-content-center mt-4"
             pageClassName="page-item"
             pageLinkClassName="page-link"
             previousClassName="page-item"
@@ -168,3 +156,4 @@ const Movies = () => {
 }
 
 export default Movies
+

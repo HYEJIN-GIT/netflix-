@@ -63,31 +63,15 @@
   }
 
   .movie-page {
-    padding: 20px;
-  }
-
-  .filter-box {
-    margin-bottom: 20px;
+    padding: 16px;
   }
   
-
   .filter-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
   }
   
- 
-  @media (max-width: 768px) {
-    .filter-row {
-      flex-direction: column;
-    }
-  
-    .filter-row .dropdown {
-      width: 100%;
-    }
-  
-    .movie-card-col {
-      margin-bottom: 15px;
+  @media (max-width: 576px) {
+    .movie-page {
+      padding: 12px;
     }
   }

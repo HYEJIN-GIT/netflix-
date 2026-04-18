@@ -136,23 +136,18 @@
     flex: 1;
     min-width: 140px;
     text-align: center;
-  
     padding: 18px 12px;
     border-radius: 14px;
-  
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-  
     color: #fff;
     font-size: 14px;
     font-weight: 500;
-  
     backdrop-filter: blur(10px);
-  
     transition: all 0.25s ease;
   }
   
-  /* hover 효과 */
+
   .movie-info div:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.1);
