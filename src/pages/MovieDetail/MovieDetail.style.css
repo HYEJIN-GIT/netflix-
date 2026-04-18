@@ -1,156 +1,193 @@
 
-.movie-wrapper {
-    position: relative;
-    height: 70vh; 
-    background-size: cover;
-    background-position: center;
-    color: white;
-  }
-  
- 
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.95) 10%,
-      rgba(0,0,0,0.7) 40%,
-      rgba(0,0,0,0.3) 100%
-    );
-    z-index: 1;
-  }
-  
- 
-  .content {
-    position: absolute;
-    bottom: -120px; 
-    left: 80px;
-    display: flex;
-    gap: 40px;
-    z-index: 2;
-    align-items: flex-end;
-  }
-  
- 
-  .poster {
-    width: 260px;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-  }
-  
- 
-  .details {
-    max-width: 600px;
-  }
-  
-  .details h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-  }
-  
 
-  .badges {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
+.movie-wrapper {
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.95) 10%,
+    rgba(0,0,0,0.7) 40%,
+    rgba(0,0,0,0.3) 100%
+  );
+  z-index: 1;
+}
+
+
+.content {
+  position: absolute;
+  bottom: -120px;
+  left: 80px;
+  display: flex;
+  gap: 40px;
+  z-index: 2;
+  align-items: flex-end;
+}
+
+.poster {
+  width: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+.details {
+  max-width: 600px;
+}
+
+.details h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.badges span {
+  background: rgba(255,255,255,0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.overview {
+  line-height: 1.6;
+  color: #ddd;
+  font-size: 15px;
+}
+
+.movie-info {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.movie-info div {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  padding: 18px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-area {
+  margin-top: px;
+}
+
+.review-section {
+  margin-top: 160px;
+  padding: 60px 80px;
+  background: #0b0b0b;
+  color: white;
+}
+.review-card  {
+ margin: 30px;
+}
+
+.review-card button {
   
-  .badges span {
-    background: rgba(255,255,255,0.2);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
+  color: white;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 13px;
+}
+
+
+@media (max-width: 768px) {
+
+  .movie-wrapper {
+    height: 50vh;
+  }
+
+  .content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    margin-top: -120px;
+    text-align: center;
+  }
+
+  .poster {
+    width: 180px;
+  }
+
+  .details {
+    max-width: 100%;
+  }
+
+  .details h1 {
+    font-size: 24px;
   }
 
   .meta {
-    display: flex;
-    gap: 20px;
-    color: #bbb;
-    margin-bottom: 15px;
+    justify-content: center;
+    font-size: 13px;
   }
-  
 
   .overview {
-    line-height: 1.6;
-    color: #ddd;
-    font-size: 15px;
+    font-size: 14px;
   }
+
+  .movie-info {
+    gap: 10px;
+  }
+
+  .movie-info div {
+    flex: 1 1 calc(50% - 10px);
+    font-size: 12px;
+    padding: 12px;
+  }
+
   
+  .video-area {
+    margin-top: 400px;
+    padding: 0 12px;
+  }
+
+  iframe {
+    height: 220px;
+  }
+
   .review-section {
-    margin-top: 160px; 
-    padding: 60px 80px;
-    background: #0b0b0b;
-    color: white;
+    margin-top: 40px;
+    padding: 20px 16px;
   }
-  
-  .review-section h2 {
-    font-size: 26px;
-    margin-bottom: 25px;
-  }
-  
 
   .review-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: all 0.2s ease;
+    padding: 14px;
+    
   }
-  
-  .review-card:hover {
-    transform: translateY(-5px);
-    background: #222;
-  }
-  
+
   .review-card h4 {
-    margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 14px;
   }
-  
+
   .review-card p {
-    color: #ccc;
-   
+    font-size: 13px;
   }
-  .video-area{
-    margin-top: 300px;
-  }
-
-  .review-card button{
- 
-    background: none;
-    border: none;
-    font-size: 14px;
-    border-bottom: 1px solid beige;
-    color: rgb(200, 189, 189);
-
-  }
-  .movie-info {
-    display: flex;
-    gap: 16px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-  
-  .movie-info div {
-    flex: 1;
-    min-width: 140px;
-    text-align: center;
-    padding: 18px 12px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    backdrop-filter: blur(10px);
-    transition: all 0.25s ease;
-  }
-  
-
-  .movie-info div:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  }
+}
